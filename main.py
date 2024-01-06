@@ -3,6 +3,7 @@ import datetime as dt
 import streamlit as st
 from mlxtend.frequent_patterns import apriori
 from mlxtend.frequent_patterns import association_rules
+
 df=pd.read_csv('bread basket.csv')
 
 df['date_time']=pd.to_datetime(df['date_time'])
@@ -18,10 +19,10 @@ st.title("Sistem Rekomendasi Produk")
 
 st.sidebar.header('Filters')
 
-select_item = st.sidebar.selectbox('Select an item:',item_unik)
-select_day = st.sidebar.selectbox('Choose any day:',day)
-select_period = st.sidebar.selectbox('Choose any month:',month)
-select_week = st.sidebar.selectbox('Choose any week:',week)
+selected_item=st.sidebar.selectbox('Select an item :',item_unik)
+selected_period=st.sidebar.selectbox('Select an month :',month)
+selected_day=st.sidebar.selectbox('Select an day :',day)
+selected_week=st.sidebar.selectbox('Select an weekend/weekday :',week)
 
 #filtered_data = df[(df['period_day'] == selected_period_day) & (df['weekday'] == selected_weekday) & (df['month'] == selected_month)]
 
